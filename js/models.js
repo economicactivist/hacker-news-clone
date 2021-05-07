@@ -101,6 +101,8 @@ class User {
     { username, name, createdAt, favorites = [], ownStories = [] },
     token
   ) {
+
+    //? you can access the properties from an object in the constructor without destructuring?
     this.username = username
     this.name = name
     this.createdAt = createdAt
