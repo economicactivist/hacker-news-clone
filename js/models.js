@@ -26,7 +26,7 @@ class Story {
 
   getHostName() {
     // TODO: UNIMPLEMENTED: complete this function!
-    return 'hostname.com'
+    return location.host //'hostname.com'
   }
 }
 
@@ -49,7 +49,7 @@ class StoryList {
 
   static async getStories() {
     // Note presence of `static` keyword: this indicates that getStories is
-    //  **not** an instance method. Rather, it is a method that is called on the
+    //  not an instance method. Rather, it is a method that is called on the
     //  class directly. Why doesn't it make sense for getStories to be an
     //  instance method?
 
@@ -173,6 +173,8 @@ class User {
   /** When we already have credentials (token & username) for a user,
    *   we can log them in automatically. This function does that.
    */
+
+  //Todo: search for the associated if statement (if userloggedin)
 
   static async loginViaStoredCredentials(token, username) {
     try {

@@ -1,6 +1,7 @@
 "use strict";
 
 // global to hold the User instance of the currently-logged-in user
+//! currentUser is the 4th script loaded into the html file yet the js files above have access??
 let currentUser;
 
 /******************************************************************************
@@ -8,6 +9,7 @@ let currentUser;
  */
 
 /** Handle login form submission. If login ok, sets up the user instance */
+//* two functions called "login": one is a method of the class "User" the other is here
 
 async function login(evt) {
   console.debug("login", evt);
@@ -21,12 +23,14 @@ async function login(evt) {
   // which we'll make the globally-available, logged-in user.
   currentUser = await User.login(username, password);
 
+  //new jquery method
   $loginForm.trigger("reset");
 
   saveUserCredentialsInLocalStorage();
   updateUIOnUserLogin();
 }
 
+//*this is where the second login function is actually called 
 $loginForm.on("submit", login);
 
 /** Handle signup form submission. */
@@ -43,6 +47,7 @@ async function signup(evt) {
   // which we'll make the globally-available, logged-in user.
   currentUser = await User.signup(username, password, name);
 
+  //defined below  
   saveUserCredentialsInLocalStorage();
   updateUIOnUserLogin();
 
@@ -59,6 +64,8 @@ $signupForm.on("submit", signup);
 function logout(evt) {
   console.debug("logout", evt);
   localStorage.clear();
+  //? The location object contains information about the current URL.
+  //* location.reload() is the same as hitting refresh
   location.reload();
 }
 
@@ -106,7 +113,7 @@ function saveUserCredentialsInLocalStorage() {
  * - update nav bar options for logged-in user
  * - generate the user profile part of the page
  */
-
+//* called with the start() function in main.js (if(currentUser){...})
 function updateUIOnUserLogin() {
   console.debug("updateUIOnUserLogin");
 

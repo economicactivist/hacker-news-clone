@@ -4,7 +4,7 @@
 let storyList;
 
 /** Get and show stories when site first loads. */
-
+//* called in start() in main.js
 async function getAndShowStoriesOnStart() {
   storyList = await StoryList.getStories();
   $storiesLoadingMsg.remove();
@@ -23,6 +23,8 @@ function generateStoryMarkup(story) {
   // console.debug("generateStoryMarkup", story);
 
   const hostName = story.getHostName();
+  //* note the use of jQuery here.  
+  //? What would be the difference in using a template literal without $()?
   return $(`
       <li id="${story.storyId}">
         <a href="${story.url}" target="a_blank" class="story-link">
