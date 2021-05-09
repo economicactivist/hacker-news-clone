@@ -47,6 +47,7 @@ function putStoriesOnPage() {
   // loop through all of our stories and generate HTML for them
   for (let story of storyList.stories) {
     const $story = generateStoryMarkup(story);
+    //?wouldn't this put new stories at the bottom?
     $allStoriesList.append($story);
   }
 
