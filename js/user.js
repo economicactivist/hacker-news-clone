@@ -42,7 +42,10 @@ async function addNewStory(evt){
   const newAuthor = $('#create-author').val()
   const newUrl = $('#create-url').val()
   
-  await StoryList.addStory(currentUser, {newTitle, newAuthor, newUrl})
+
+  
+  await new StoryList(storyList).addStory(currentUser, {title: newTitle, author: newAuthor, url: newUrl})
+  putStoriesOnPage()
   
 }
 
