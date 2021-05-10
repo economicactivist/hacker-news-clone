@@ -6,9 +6,13 @@ const $body = $('body')
 
 const $storiesLoadingMsg = $('#stories-loading-msg')
 const $allStoriesList = $('#all-stories-list')
+const $allFavsList = $('#all-favs-list')
+const $allUserStoriesList = $('#all-user-stories-list')
+
 
 const $loginForm = $('#login-form')
 const $signupForm = $('#signup-form')
+const $submitForm = $('#submit-form')
 
 const $navLogin = $('#nav-login')
 const $navUserProfile = $('#nav-user-profile')

@@ -82,6 +82,7 @@ class StoryList {
     console.log(storyObj)
     let {title, author, url} = storyObj
     let {username} = user
+  
     // const {}
     let newStoryObj = {title, author, url, username}
     // {username: "davem", name: "dave", createdAt: "2021-05-09T20:57:22.220Z", favorites: Array(0), ownStories: Array(0), …}

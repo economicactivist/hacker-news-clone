@@ -15,9 +15,23 @@ function navAllStories(evt) {
 }
 
 //add event listener to the element with the "nav-all" id and then calls navAllStories on click
-//body can be accessed because it was defined in main.js and the script is above nav.js in index.html
-//? why didn't we grab 'nav-all' directly and assign it to variable in main.js
-$body.on('click', '#nav-all', navAllStories)
+//$body can be accessed because it was defined in main.js and the script is above nav.js in index.html
+//? why didn't we grab 'nav-all' directly and assign it to variable in main.js?
+$body.on('click', '#nav-home', navAllStories)
+
+
+/** Show story formj (Don't hide stories below form) */
+
+function navSubmitClick(evt){
+  console.debug('navSubmitClick', evt)
+  $allStoriesList.prepend($submitForm);
+  $submitForm.show()
+}
+$body.on('click', '#nav-submit', navSubmitClick)
+
+
+
+
 
 /** Show login/signup on click on "login" */
 
@@ -35,7 +49,7 @@ $navLogin.on('click', navLoginClick)
 
 function updateNavOnLogin() {
   console.debug('updateNavOnLogin')
-  $('.main-nav-links').show() //? where is this class?
+  $('.main-nav-links').show() //*had to add this class
   $navLogin.hide()
   $navLogOut.show() //overrides the css property for the hidden class in site.css
   //? why .show()? the code doesn't indicate that navUserProfile is hidden
