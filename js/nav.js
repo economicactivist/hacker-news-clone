@@ -24,13 +24,28 @@ $body.on('click', '#nav-home', navAllStories)
 
 function navSubmitClick(evt){
   console.debug('navSubmitClick', evt)
-  $allStoriesList.prepend($submitForm);
+  hidePageComponents()
+  putStoriesOnPage()
   $submitForm.show()
+  $allStoriesList.prepend($submitForm);
+ 
 }
 $body.on('click', '#nav-submit', navSubmitClick)
 
+function navUserStoriesClick(evt) { 
+  console.debug('navUserStoriesClick', evt)
+  hidePageComponents()
+  $allUserStoriesList.show()
+ }
 
+$body.on('click', '#nav-my-stories', navUserStoriesClick)
 
+function navFavClick(evt){
+  console.debug('navFavlick', evt)
+  hidePageComponents()
+  $allFavsList.show()
+}
+$body.on('click', '#nav-fav', navFavClick)
 
 
 /** Show login/signup on click on "login" */
