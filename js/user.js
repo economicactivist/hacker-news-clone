@@ -33,6 +33,21 @@ async function login(evt) {
 //*this is where the second login function is actually called 
 $loginForm.on("submit", login);
 
+/** Handle new story submission */
+async function addNewStory(evt){
+  console.debug("addNewStory",evt)
+  evt.preventDefault()
+
+  const newTitle = $('#create-title').val()
+  const newAuthor = $('#create-author').val()
+  const newUrl = $('#create-url').val()
+  
+  await StoryList.addStory(currentUser, {newTitle, newAuthor, newUrl})
+  
+}
+
+$submitForm.on('submit', addNewStory)
+
 /** Handle signup form submission. */
 
 async function signup(evt) {
@@ -51,6 +66,7 @@ async function signup(evt) {
   saveUserCredentialsInLocalStorage();
   updateUIOnUserLogin();
 
+  //! research trigger later
   $signupForm.trigger("reset");
 }
 

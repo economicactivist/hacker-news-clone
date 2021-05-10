@@ -36,6 +36,7 @@ class Story {
 
 class StoryList {
   constructor(stories) {
+    //? is this.stories ever used??
     this.stories = stories
   }
 
