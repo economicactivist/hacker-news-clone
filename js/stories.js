@@ -19,22 +19,25 @@ async function getAndShowStoriesOnStart() {
  * Returns the markup for the story.
  */
 
-function generateStoryMarkup(story) {
+function generateStoryMarkup(story, showDeleteBtn = false) {
   // console.debug("generateStoryMarkup", story);
 
   const hostName = story.getHostName()
   //* note the use of jQuery here.
   //? What would be the difference in using a template literal without $()?
+  const showStar = Boolean(currentUser);
   return $(`
-      <li id="${story.storyId}">
-        <a href="${story.url}" target="a_blank" class="story-link">
-          ${story.title}
-        </a>
-        <small class="story-hostname">(${hostName})</small>
-        <small class="story-author">by ${story.author}</small>
-        <small class="story-user">posted by ${story.username}</small>
-      </li>
-    `)
+            <li id="${story.storyId}">
+              ${showDeleteBtn ? getDeleteBtnHTML() : ''}
+              ${showStar ? getStarHTML(story, currentUser) : ''}
+              <a href="${story.url}" target="a_blank" class="story-link">
+                ${story.title}
+              </a>
+              <small class="story-hostname">(${hostName})</small>
+              <small class="story-author">by ${story.author}</small>
+              <small class="story-user">posted by ${story.username}</small>
+            </li>
+          `)
 }
 
 /** Gets list of stories from server, generates their HTML, and puts on page. */

@@ -19,35 +19,33 @@ function navAllStories(evt) {
 //? why didn't we grab 'nav-all' directly and assign it to variable in main.js?
 $body.on('click', '#nav-home', navAllStories)
 
-
 /** Show story formj (Don't hide stories below form) */
 
-function navSubmitClick(evt){
+function navSubmitClick(evt) {
   console.debug('navSubmitClick', evt)
   hidePageComponents()
   putStoriesOnPage()
   $submitForm.show()
-  $allStoriesList.prepend($submitForm);
- 
+  $allStoriesList.prepend($submitForm)
 }
 $body.on('click', '#nav-submit', navSubmitClick)
 
-function navUserStoriesClick(evt) { 
+function navUserStoriesClick(evt) {
   console.debug('navUserStoriesClick', evt)
   hidePageComponents()
   putUserStoriesOnPage()
   $allUserStoriesList.show()
- }
+}
 
 $body.on('click', '#nav-my-stories', navUserStoriesClick)
 
-function navFavClick(evt){
+function navFavClick(evt) {
   console.debug('navFavlick', evt)
   hidePageComponents()
-  $allFavsList.show()
+  putFavoritesListOnPage()
+  // $allFavsList.show()
 }
 $body.on('click', '#nav-fav', navFavClick)
-
 
 /** Show login/signup on click on "login" */
 
