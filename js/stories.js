@@ -53,3 +53,28 @@ function putStoriesOnPage() {
 
   $allStoriesList.show();
 }
+
+/** Handle new story submission */
+async function addNewStory(evt){
+  console.debug("addNewStory",evt)
+  evt.preventDefault()
+
+  const newTitle = $('#create-title').val()
+  const newAuthor = $('#create-author').val()
+  const newUrl = $('#create-url').val()
+  
+
+  
+  const story = await storyList.addStory(currentUser, {title: newTitle, author: newAuthor, url: newUrl})
+  
+  const $story = generateStoryMarkup(story);
+  $allStoriesList.prepend($story);
+
+  // hide the form and reset it
+  //$submitForm.slideUp("slow");
+  $submitForm.hide()
+  $submitForm.trigger("reset");
+  
+}
+
+$submitForm.on('submit', addNewStory)

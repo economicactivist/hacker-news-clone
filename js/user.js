@@ -33,23 +33,7 @@ async function login(evt) {
 //*this is where the second login function is actually called 
 $loginForm.on("submit", login);
 
-/** Handle new story submission */
-async function addNewStory(evt){
-  console.debug("addNewStory",evt)
-  evt.preventDefault()
 
-  const newTitle = $('#create-title').val()
-  const newAuthor = $('#create-author').val()
-  const newUrl = $('#create-url').val()
-  
-
-  
-  await new StoryList(storyList).addStory(currentUser, {title: newTitle, author: newAuthor, url: newUrl})
-  putStoriesOnPage()
-  
-}
-
-$submitForm.on('submit', addNewStory)
 
 /** Handle signup form submission. */
 
