@@ -9,6 +9,7 @@ const $allStoriesList = $('#all-stories-list')
 const $allFavsList = $('#all-favs-list')
 const $allUserStoriesList = $('#all-user-stories-list')
 
+const $storiesLists = $('.stories-list')
 
 const $loginForm = $('#login-form')
 const $signupForm = $('#signup-form')
@@ -24,11 +25,16 @@ const $navLogOut = $('#nav-logout')
  */
 
 function hidePageComponents() {
-  const components = [$allStoriesList, $loginForm, $signupForm, $allUserStoriesList, $allFavsList]
+  const components = [
+    $allStoriesList,
+    $loginForm,
+    $signupForm,
+    $allUserStoriesList,
+    $allFavsList, //*different from solution
+    $storiesLists,
+  ]
   components.forEach(c => c.hide())
 }
-
-
 
 /** Overall function to kick off the app. */
 
@@ -61,8 +67,6 @@ console.warn(
 
 $(start)
 
-
-
 /* basically this file grabs some useful elements from the dom that I assume 
 can be used by nav.js, stories.js and user.js. It also has a fucntion that hides 
 the login and sign up forms.  I guess this is a non-React way of creating a SPA by hiding 
@@ -71,13 +75,8 @@ us form having to worry about path routing since we haven't discussed that yet. 
 async function that waits for two functions--checkForRememberedUser() and 
 getAndShowStoriesOnStart()--to be resolved.  */
 
-//! The if statement accepts a variable called "currentUser" 
+//! The if statement accepts a variable called "currentUser"
 //! but it isn't defined until the user.js file. How can main.js have access?
 
-// *It is unclear 
+// *It is unclear
 // * why $(start) doesn't break the code but start() does.
-
-
-
-
-

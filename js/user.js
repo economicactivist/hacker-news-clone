@@ -124,3 +124,5 @@ function updateUIOnUserLogin() {
 
   updateNavOnLogin();
 }
+
+

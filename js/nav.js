@@ -35,6 +35,7 @@ $body.on('click', '#nav-submit', navSubmitClick)
 function navUserStoriesClick(evt) { 
   console.debug('navUserStoriesClick', evt)
   hidePageComponents()
+  putUserStoriesOnPage()
   $allUserStoriesList.show()
  }
 
